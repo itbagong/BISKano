@@ -1,0 +1,21 @@
+stages:
+- build
+- deploy
+
+variables:
+  # all variables are case sensitive
+  # service are: config,iam,msg,asset,api,worker,web-member,web-public,web-admin
+  # phase need to be run, options are all or prep,build,deploy 
+  V_ADHOC: 2
+  V_BUILD_MODE: $CI_COMMIT_BRANCH
+  V_DEVOPS_DOCKER: devops/$V_BUILD_MODE/Dockerfile
+  V_DEVOPS_K8S: devops/$V_BUILD_MODE/k8.yml
+
+include: 
+  - '/ci/build.yml'
+  - local: /devops/dev.deploy/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="dev.deploy"
+  - local: /devops/stg.deploy/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="stg.deploy"

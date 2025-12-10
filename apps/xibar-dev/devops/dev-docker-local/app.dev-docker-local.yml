@@ -1,0 +1,51 @@
+Hosts:
+  v1/admin-sales: :${var:port_prefix}11
+  v1/admin: :${var:port_prefix}01
+  v1/iam: :${var:port_prefix}02
+  v1/msg: :${var:port_prefix}03
+  v1/asset: :${var:port_prefix}04
+  v1/admin-core: :${var:port_prefix}05
+  v1/ws: :${var:port_prefix}09
+  v1/setup: :${var:port_prefix}20
+  v1/lab: :${var:port_prefix}91
+  v1/kara: :${var:port_prefix}70
+  v1/docums: :${var:port_prefix}71
+Connections:
+  default:
+    Txt: "mongodb://host.docker.internal:27017/xibardb_dev?idle=10&poolsize=500"
+    PoolSize: 500
+  iam:
+    Txt: "mongodb://host.docker.internal:27017/xibardb_dev?idel=10&poolsize=50"
+    PoolSize: 50
+  tenant:
+    Txt: "mongodb://host.docker.internal:27017/xibardb_dev_%s?idle=10&poolsize=500"
+    PoolSize: 500
+EventServer:
+  Server: "nats://host.docker.internal:4222"
+  Group: "some_unique_text"
+  EventChangeTopic: /config/change
+Data:
+  iam_folder: ${ctx:wd}/data/iam
+  data_folder: ${ctx:wd}/data
+  smtp_server: smtp.outlook.com
+  smtp_port: 587
+  smtp_uid: internal.app@kanosolution.com
+  smtp_password: y1z0PBmKCqmNNOgqFzRE
+  smtp_tls: true
+  jwt_method: HS256
+  jwt_secret: Am4z1n9Solution
+  jwt_validate_topic: /v1/iam/auth/validate
+  aws_end_point: http://host.docker.internal:9000
+  aws_region: ap-southeast-1
+  aws_bucket: xibardev
+  aws_key: admin
+  aws_secret: Password  
+  topic_asset_write: /v1/asset/write
+  addr_asset_view: http://host.docker.internal:37000/v1/asset/view
+  topic_send_message_template: /v1/msg/send-template
+  topic_change_session_data: /v1/iam/auth/change-data
+  addr_web_user: http://host.docker.internal:37000/app
+  addr_web_tenant: http://host.docker.internal:37000/app
+  addr_web_admin: http://host.docker.internal:37000/app
+  addr_web_user_activation: /activate-user
+  

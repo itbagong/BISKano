@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  asset
+  namespace: stg-bagong
+spec:
+  selector:
+    app: asset
+  ports:
+  - protocol: TCP
+    port: 37004
+    targetPort: 37004
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asset
+  namespace: stg-bagong
+  labels:
+    app: asset
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: asset
+  template:
+    metadata:
+      labels:
+        app: asset
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: config-volume
+        secret:
+          secretName: xibar-app-config  
+      containers:
+      - name: asset
+        image: registry.kanosolution.net/sebar/apps/xibar/asset:stg
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37004
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true

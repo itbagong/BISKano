@@ -1,0 +1,52 @@
+Hosts:
+  v1/admin-sales: :${var:port_prefix}11
+  v1/admin: :${var:port_prefix}01
+  v1/iam: :${var:port_prefix}02
+  v1/msg: :${var:port_prefix}03
+  v1/asset: :${var:port_prefix}04
+  v1/tenant: :${var:port_prefix}05
+  v1/admin-core: :${var:port_prefix}06
+  v1/ws: :${var:port_prefix}09
+  v1/setup: :${var:port_prefix}20
+  v1/lab: :${var:port_prefix}91
+  v1/kara: :${var:port_prefix}70
+  v1/docums: :${var:port_prefix}71
+Connections:
+  default:
+    Txt: ${env:db_conn_app}
+    PoolSize: 500
+  iam:
+    Txt: ${env:db_conn_app}
+    PoolSize: 50
+  tenant:
+    Txt: ${env:db_conn_tenant}
+    PoolSize: 500
+EventServer:
+  Server: ${env:event_conn}
+  Group: ${env:event_group}
+  EventChangeTopic: /config/change
+Data:
+  iam_folder: ${ctx:wd}/data/iam
+  data_folder: ${ctx:wd}/data
+  smtp_server: ${env:smtp_server}
+  smtp_port: ${env:smtp_port}
+  smtp_uid: ${env:smtp_uid}
+  smtp_password: ${env:smtp_password}
+  smtp_tls: true
+  jwt_method: HS256
+  jwt_secret: ${env:jwt_secret}
+  jwt_validate_topic: /v1/iam/auth/validate
+  region_end_point: ${env:aws_end_point}
+  region_region: ${env:aws_region}
+  region_bucket: ${env:aws_bucket}
+  region_key: ${env:aws_key}
+  region_secret: ${env:aws_secret}  
+  topic_asset_write: /v1/asset/write
+  addr_asset_view: ${env:xibar_base_host}/v1/asset/view
+  topic_send_message_template: /v1/msg/send-template
+  topic_change_session_data: /v1/iam/auth/change-data
+  addr_web_user: ${env:xibar_base_host}/app
+  addr_web_tenant: ${env:xibar_base_host}/app
+  addr_web_admin: ${env:xibar_base_host}/app
+  addr_web_user_activation: /activate-user
+  addr_web_user_2fa: /validate2fa

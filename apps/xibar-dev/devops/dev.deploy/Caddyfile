@@ -1,0 +1,40 @@
+:8080 {
+	#tls internal
+
+	header -server
+	header /v1/* {
+		cache-control "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+	}
+
+	# Proxy for SERVICES
+	reverse_proxy /v1/admin/* 			admin:37001
+	reverse_proxy /v1/iam/* 			iam:37002
+	reverse_proxy /v1/msg/* 			msg:37003	
+	reverse_proxy /v1/asset/* 			asset:37004 
+	
+	# proxy for BizApp
+	reverse_proxy /v1/tenant/* 			tenant:37800
+	reverse_proxy /v1/fico/* 			fico:37801
+	reverse_proxy /v1/kara/*			kara:37820
+	reverse_proxy /v1/flow/* 			flow:37821
+	reverse_proxy /v1/scm/* 			scm:37802
+	reverse_proxy /v1/mfg/* 			mfg:37803
+	reverse_proxy /v1/hcm/*				hcm:37920
+	reverse_proxy /v1/sdp/* 			sdp:37804
+
+	# proxy for client
+	reverse_proxy /v1/bagong/*			bagong:37890
+
+	# Proxy for FRONTEND
+	redir /app /app/
+	reverse_proxy /app/* web-xiuser:37080
+
+	redir /bagong /bagong/
+	reverse_proxy /bagong/* web-bagong:38001
+
+	redir /kara /kara/
+	reverse_proxy /kara/* web-kara:38101
+
+	# ini harus paling bawah
+	redir / /app/
+}

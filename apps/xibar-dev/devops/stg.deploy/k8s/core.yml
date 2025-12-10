@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  admin
+  namespace: stg-bagong
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37001
+    targetPort: 37001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  iam
+  namespace: stg-bagong
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37002
+    targetPort: 37002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  msg
+  namespace: stg-bagong
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37003
+    targetPort: 37003
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: util
+  namespace: stg-bagong
+  labels:
+    app: util
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: util
+  template:
+    metadata:
+      labels:
+        app: util
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: config-volume
+        secret:
+          secretName: xibar-app-config  
+      containers:
+      - name: admin
+        image: registry.kanosolution.net/sebar/apps/xibar/admin:stg
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37001
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
+      - name: iam
+        image: registry.kanosolution.net/sebar/apps/xibar/iam:stg
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37002
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
+      - name: msg
+        image: registry.kanosolution.net/sebar/apps/xibar/msg:stg
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37003
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true

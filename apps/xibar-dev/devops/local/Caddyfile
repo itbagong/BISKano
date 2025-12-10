@@ -1,0 +1,48 @@
+http://localhost:37000 {
+	#tls internal
+
+	header -server
+	header /v1/* {
+		cache-control "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+	}
+
+	# Proxy for SERVICES
+	reverse_proxy /v1/admin/* 			localhost:37001
+	reverse_proxy /v1/iam/* 			localhost:37002
+	reverse_proxy /v1/msg/* 			localhost:37003	
+	reverse_proxy /v1/asset/* 			localhost:37004
+	reverse_proxy /v1/lab/* 			localhost:37020
+	reverse_proxy /v1/ws/* 				localhost:37009
+	reverse_proxy /v1/sdp/* 			localhost:37901
+	
+	# reverse_proxy /v1/admin-core/* 		localhost:37006
+	reverse_proxy /v1/kara/* 			localhost:37070
+	# reverse_proxy /v1/docums/* 			localhost:37110
+
+	# proxy for BizApp
+	reverse_proxy /v1/tenant/* 			localhost:37800
+	reverse_proxy /v1/fico/* 			localhost:37801
+	reverse_proxy /v1/kara/*			localhost:37820
+
+	# proxy for client specfic process
+	reverse_proxy /v1/bagong/*			localhost:37890
+	reverse_proxy /v1/scm/*				localhost:37802
+	reverse_proxy /v1/mfg/*				localhost:37910
+	reverse_proxy /v1/hcm/*				localhost:37920
+	reverse_proxy /v1/she/*				localhost:37930
+
+	# Proxy for FRONTEND
+	redir /fico /fico/
+	reverse_proxy /fico/* localhost:37880
+
+	redir /admin /admin/ 
+	reverse_proxy /admin/* localhost:37081
+
+	redir /bagong /bagong/
+	reverse_proxy /bagong/* localhost:38001
+
+	# redir / /app/
+	redir / /app/
+	redir /app /app/
+	reverse_proxy /app/* localhost:37080
+}

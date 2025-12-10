@@ -1,0 +1,114 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  admin
+  namespace: dev-xibar
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37001
+    targetPort: 37001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  iam
+  namespace: dev-xibar
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37002
+    targetPort: 37002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  msg
+  namespace: dev-xibar
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37003
+    targetPort: 37003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  asset
+  namespace: dev-xibar
+spec:
+  selector:
+    app: util
+  ports:
+  - protocol: TCP
+    port: 37004
+    targetPort: 37004
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: util
+  namespace: dev-xibar
+  labels:
+    app: util
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: util
+  template:
+    metadata:
+      labels:
+        app: util
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: config-volume
+        secret:
+          secretName: xibar-app-config  
+      containers:
+      - name: admin
+        image: registry.kanosolution.net/sebar/apps/xibar/admin:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37001
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
+      - name: iam
+        image: registry.kanosolution.net/sebar/apps/xibar/iam:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37002
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
+      - name: msg
+        image: registry.kanosolution.net/sebar/apps/xibar/msg:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37003
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true
+      - name: asset
+        image: registry.kanosolution.net/sebar/apps/xibar/asset:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37004
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+          readOnly: true

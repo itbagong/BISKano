@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  web-xiuser
+  namespace: stg-bagong
+spec:
+  selector:
+    app: web-xiuser
+  ports:
+  - protocol: TCP
+    port: 37080
+    targetPort: 37080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-xiuser
+  namespace: stg-bagong
+  labels:
+    app: web-xiuser
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-xiuser
+  template:
+    metadata:
+      labels:
+        app: web-xiuser
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      containers:
+      - name: web-xiuser
+        image: registry.kanosolution.net/sebar/apps/xi-web-user/web-xiuser:stg.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37080

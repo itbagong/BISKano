@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: caddy
+  namespace: stg-bagong
+  labels:
+    app: caddy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: caddy
+  template:
+    metadata:
+      labels:
+        app: caddy
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: etc-caddy-volume
+        secret:
+          secretName: etc-caddy  
+      containers:
+        - name: caddy
+          image: registry.kanosolution.net/sebar/apps/xibar/caddy
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: etc-caddy-volume
+            mountPath: /etc/caddy
+            readOnly: true
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: caddy-svc
+  namespace: stg-bagong
+spec:
+  selector:    
+    app: caddy
+  type: ClusterIP
+  ports:  
+  - name: http
+    port: 8080
