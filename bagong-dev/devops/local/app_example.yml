@@ -1,0 +1,34 @@
+Hosts:
+  v1/fico: :37890
+Connections:
+  tenant:
+    Txt: ${env:db_conn_tenant}
+    PoolSize: 500
+EventServer:
+  Server: ${env:event_conn}
+  Group: ${env:event_group}
+  EventChangeTopic: /config/change
+Data:
+  iam_folder: ${ctx:wd}/data/iam
+  data_folder: ${ctx:wd}/data
+  smtp_server: ${env:smtp_server}
+  smtp_port: ${env:smtp_port}
+  smtp_uid: ${env:smtp_uid}
+  smtp_password: ${env:smtp_password}
+  smtp_tls: true
+  jwt_method: HS256
+  jwt_secret: ${env:jwt_secret}
+  jwt_validate_topic: /v1/iam/auth/validate
+  aws_end_point: ${env:aws_end_point}
+  aws_region: ${env:aws_region}
+  aws_bucket: ${env:aws_bucket}
+  aws_key: ${env:aws_key}
+  aws_secret: ${env:aws_secret}  
+  topic_asset_write: /v1/asset/write
+  addr_asset_view: ${env:xibar_base_host}/v1/asset/view
+  topic_send_message_template: /v1/msg/send-template
+  topic_change_session_data: /v1/iam/auth/change-data
+  addr_web_user: ${env:xibar_base_host}/app
+  addr_web_tenant: ${env:xibar_base_host}/app
+  addr_web_admin: ${env:xibar_base_host}/app
+  addr_web_user_activation: /activate-user
