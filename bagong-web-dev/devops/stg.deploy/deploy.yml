@@ -1,0 +1,11 @@
+deploy:k8s:
+  stage: deploy
+  only:
+  - /\.deploy$/
+  image: registry.kanosolution.net/kano/devops/kubectl/kubeaws:latest
+  script:
+    - AWS_ACCESS_KEY_ID=${STG_AWS_ACCESS_KEY_ID_BDM}
+    - AWS_SECRET_ACCESS_KEY=${STG_AWS_SECRET_ACCESS_KEY_BDM}
+    - aws eks --region ap-southeast-3 update-kubeconfig --name eks-bagongbis
+    - kubectl apply -n stg-bagong -f $V_DEVOPS_K8S
+    - kubectl rollout restart deploy web-bagong -n stg-bagong

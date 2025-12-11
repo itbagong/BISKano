@@ -1,0 +1,293 @@
+.card {
+    @apply bg-white p-[10px] rounded-md shadow-md w-[450px] border-[1px] border-slate-300;
+}
+
+.card_title {
+    @apply text-xl;
+    color: #000 !important
+}
+.notif_primary,
+.btn_primary > button {
+    @apply bg-primary text-white  disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed
+}
+.notif_success,
+.btn_success > button  {
+    @apply bg-success text-white  disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed
+}
+.notif_secondary,
+.btn_secondary > button  {
+    @apply bg-secondary text-white  disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed
+}
+.notif_warning,
+.btn_warning > button  {
+    @apply bg-warning text-black disabled:bg-slate-500 disabled:text-white disabled:cursor-not-allowed
+}
+.notif_error,
+.btn_error  > button {
+    @apply bg-error text-yellow-200 disabled:opacity-60 disabled:cursor-not-allowed
+}
+
+.btn_text_primary {
+    @apply cursor-pointer text-primary
+        hover:bg-primary hover:text-white hover:opacity-30 hover:px-2
+        disabled:cursor-none;
+}
+
+.btn_text_secondary {
+    @apply cursor-pointer text-secondary
+        hover:bg-secondary hover:text-white hover:opacity-30 hover:px-2
+        disabled:cursor-none;
+}
+
+
+
+.btn_text_warning {
+    @apply cursor-pointer text-warning
+        hover:bg-warning hover:text-slate-700 hover:opacity-30 hover:px-2
+        disabled:cursor-none;
+}
+
+.btn_text_error {
+    @apply cursor-pointer text-error
+    hover:bg-error hover:text-warning hover:opacity-30 hover:px-2
+    disabled:cursor-none;
+}
+
+.input_label {
+    @apply text-[0.7em] font-bold text-slate-500
+}
+
+.input_field {
+@apply w-[100%] bg-input-bg text-input-text border-[1px] border-slate-300 px-2
+    focus:bg-input-bg-active focus:text-input-text-active focus:border-slate-400 
+    text-[13px]
+    disabled:bg-slate-50 min-h-[30px]
+    outline-none;
+}
+
+textarea.input_field {
+    @apply border p-2
+}
+
+.input_select {
+    @apply bg-transparent pt-1 pb-1 border-b-[1px] border-slate-300
+    focus:bg-input-bg-active focus:text-input-text-active focus:border-slate-400
+}
+
+
+.input_select .option {
+    @apply text-white
+}
+
+.input_icon {
+@apply absolute right-0 h-full items-center px-2 text-slate-700 hover:opacity-30;
+}
+
+.input_error {
+@apply text-[0.7em] font-semibold text-error;
+}
+
+.suim_table {
+    @apply mb-3 border border-[#D1D5DC];
+}
+
+.suim_table > thead > tr {
+    @apply py-[3px] bg-[#f7f8f9] min-h-[35px] h-[38px] text-neutral-950   border-b-[1px] border-[#D1D5DC] ;
+}
+
+.suim_table > thead > tr > th {
+    @apply font-normal pl-[5px] pr-[5px] first:border-l-0 border-l border-[#D1D5DC];
+}
+
+.suim_table .row_select {
+    @apply w-[30px]
+}
+
+.suim_table .row_action {
+    @apply flex flex-row gap-x-1.5;
+}
+
+.suim_table > tbody > tr {
+    @apply odd:bg-white even:bg-white hover:bg-slate-300;
+}
+
+.suim_table > tbody > tr > td {
+    @apply first:border-l-0 border-l-0 pl-[5px] pr-[5px] min-h-[35px] ;
+}
+
+.nodata {
+    @apply bg-slate-100 mb-2 p-2 text-center border border-slate-200;
+}
+
+.loading {
+
+}
+
+.suim_form .section {
+    @apply pb-5
+}
+
+.suim_form h1.title {
+    @apply mb-[10px]
+}
+
+.suim_form { 
+    .tab_container .tab, 
+    .tab_container .tab_selected{
+  	padding-left: 20px !important;
+  	padding-right: 20px !important;
+    } 
+    .tab_selected{
+	border-left: 0 !important;
+	border-right: 0 !important;
+	border-top: 0 !important; 
+    }
+    .section_group_container {
+        @apply gap-5;
+
+        .section_group {
+            @apply gap-[20px];
+        }
+    }
+
+    .form_inputs {
+        .section_group {
+            .section {
+                @apply pb-2 last:pb-0;
+
+                div.title {
+                    @apply border-b-[1px] border-slate-500 mb-[15px] font-bold font-[16px];
+                }
+            }
+        }
+    }
+
+    .tab_container {
+        @apply mb-2 items-center font-semibold;
+
+        .tab_selected {
+            @apply p-2 border border-b-[5px] border-primary text-primary min-w-[50px] text-center;
+        }
+        
+        .tab {
+            @apply p-2 border-b-[5px] border-slate-300 cursor-pointer hover:text-secondary hover:border-secondary min-w-[50px] text-center;
+        }
+    }
+}
+.main-layout:has(.suim_form.focus){
+  position: relative
+}
+.suim_form.focus{
+  @apply  w-full p-5 pt-[70px];
+  top: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  
+}
+.suim_form.focus>div{
+    @apply bg-white;
+  padding: 10px
+}
+
+.suim_form .checkboxOffset { 
+    /* @apply pt-[12px]; */
+}
+
+  
+.suim_datalist .suim_form .header{
+  min-height: 0 !important;
+}
+ 
+.suim_form .section_title{
+  @apply bg-gray-200 mb-3 p-1 px-2;
+}
+.suim_grid .header{
+  @apply mb-4;
+}
+.suim_grid tbody.editor > tr > td{
+  @apply pt-2
+}
+.suim_grid tbody.editor > tr > td  .suim_input  input.input_field {
+  @apply border-0 border-b-[1px] mb-2 pb-1;
+}
+.suim_grid tbody.editor > tr > td  .v-select>div{
+  @apply border-0 border-b-[1px] mb-2;
+}
+.modal_container .modal_title{
+  @apply p-3 text-xl font-bold;
+}
+.suim_datalist.show_title > .card_body   .suim_form   .header{
+  position:relative
+}
+.suim_datalist.show_title > .card_body   .suim_form   .header .suim_form_button.form_button_top{
+  position: absolute;
+  top: -35px;
+  right: 0;
+}
+.suim_datalist.hide_title > .card_body   .suim_form  .header .suim_form_button.form_button_top,
+.suim_datalist.show_title  .suim_datalist.show_title  .suim_form .header .suim_form_button.form_button_top{
+  position: relative !important;
+  top: auto  !important;
+  right: auto  !important;
+}
+.suim_form.loading > .loader
+{
+  @apply  cursor-not-allowed pointer-events-none absolute flex justify-center pt-[70px];
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;  
+  background-color:rgba(240,240,240,0.5);
+  
+} 
+.suim_datalist > .card_body > .loader,
+.grid_card > .card_body > .loader{
+  @apply  cursor-not-allowed pointer-events-none absolute flex justify-center pt-[70px];
+  height: 100vh;
+  width: -webkit-fill-available;  
+  background-color:rgba(240,240,240,0.5);
+}
+
+.suim_form.loading > .loader::before,
+.suim_datalist > .card_body >  .loader::before,
+.grid_card > .card_body >  .loader::before
+{
+  @apply border-t-primary;
+  position: absolute;
+  content: "";
+  border: 14px solid  #f6e2e2; 
+  border-top: 14px solid var(--color-primary);   
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1.75s linear infinite;
+  opacity: 1.2;
+}
+.suim_table tbody > tr{
+ pointer-events: auto !important;
+}
+ 
+.suim_input .is_required{
+  color: red !important;
+  font-size: 1em;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.btn_reopen > button{
+  @apply w-[70px] bg-green-500 text-white;
+
+}
+
+/* for hide label "No file choosen" */
+input[type='file'] {
+  color: rgba(0, 0, 0, 0);
+}
+.grid-line-items .card_body .suim_grid .suim_area_table, .grid-line-items .suim_area_table{
+  overflow-x: unset !important;
+}
+.header_button{
+  gap: 0.25rem;
+}

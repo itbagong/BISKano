@@ -1,0 +1,22 @@
+stages:
+- prep
+- build
+- deploy
+
+variables:
+  V_RND: 5
+  V_BUILD_MODE: $CI_COMMIT_BRANCH
+  V_DEVOPS_DOCKER: devops/$V_BUILD_MODE/Dockerfile
+  V_DEVOPS_K8S: devops/$V_BUILD_MODE/k8.yml
+
+before_script:
+  - echo 'running pipeline for $CI_COMMIT_BRANCH'  
+  
+include:
+  - '/ci/build.yml'
+  - local: /devops/dev.deploy/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="dev.deploy"
+  - local: /devops/stg.deploy/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="stg.deploy"

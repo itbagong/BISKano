@@ -1,0 +1,127 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Admin",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-apps/xibar/app/admin/main.go",
+            "cwd": "${workspaceFolder}/../xibar-apps/xibar",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/app.yml"]
+        },
+        {
+            "name": "Launch IAM",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-apps/xibar/app/iam/main.go",
+            "cwd": "${workspaceFolder}/../xibar-apps/xibar",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/app.yml"]
+        },
+        {
+            "name": "Launch Msg",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-apps/xibar/app/msg/main.go",
+            "cwd": "${workspaceFolder}/../xibar-apps/xibar",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/app.yml"]
+        },
+        {
+            "name": "Launch Asset",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-apps/xibar/app/asset/main.go",
+            "cwd": "${workspaceFolder}/../xibar-apps/xibar",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+        {
+            "name": "Launch Tenant",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../tenantcore/app/tenant/main.go",
+            "cwd": "${workspaceFolder}/../tenantcore",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+        {
+            "name": "Launch Bagong",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-bagong/app/bagong/main.go",
+            "cwd": "${workspaceFolder}/../xibar-bagong",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+        {
+            "name": "Launch Fico",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-fico/app/fico/main.go",
+            "cwd": "${workspaceFolder}/../xibar-fico",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+        {
+            "name": "Launch SCM",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-scm/app/scm/main.go",
+            "cwd": "${workspaceFolder}/../xibar-scm",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+        {
+            "name": "Launch Mfg",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/../xibar-mfg/app/mfg/main.go",
+            "cwd": "${workspaceFolder}/../xibar-mfg",
+            "env": {},
+            "args": ["-config=${workspaceFolder}/local/module.yml"]
+        },
+    ],
+    "compounds": [
+        {
+            "name": "Run Basic",
+            "stopAll": true,
+            "configurations": [
+                "Launch Admin",
+                "Launch IAM",
+                "Launch Tenant",
+                "Launch Bagong"
+            ]
+        },
+        {
+            "name": "Run SCM",
+            "stopAll": true,
+            "configurations": [
+                "Launch Fico",
+                "Launch SCM",
+            ]
+        },
+        {
+            "name": "Run MFG",
+            "stopAll": true,
+            "configurations": [
+                "Launch Fico",
+                "Launch SCM",
+                "Launch Mfg"
+            ]
+        },
+    ]
+}

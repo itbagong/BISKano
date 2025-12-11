@@ -1,0 +1,14 @@
+stages:
+- deploy
+
+variables:
+  V_RND: 5
+  V_BUILD_MODE: $CI_COMMIT_BRANCH
+  
+before_script:
+  - echo 'running pipeline for $CI_COMMIT_BRANCH'  
+  
+include:
+  - local: /dev.deploy/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="dev.deploy"
