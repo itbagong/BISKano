@@ -1,0 +1,13 @@
+deploy:k8s:
+  stage: deploy
+  only:
+    - /\.deploy$/
+  image: registry.kanosolution.net/kano/devops/kubectl/kubeaws:latest
+  variables:
+    V_NS: dev-xibar
+  script:
+    - AWS_ACCESS_KEY_ID=${DEV_AWS_ACCESS_KEY_ID}
+    - AWS_DEFAULT_REGION=${DEV_AWS_DEFAULT_REGION}
+    - AWS_SECRET_ACCESS_KEY=${DEV_AWS_SECRET_ACCESS_KEY}
+    - aws eks --region ap-southeast-1 update-kubeconfig --name eks-dev
+    - kubectl rollout restart deployment xibar-app -n dev-xibar

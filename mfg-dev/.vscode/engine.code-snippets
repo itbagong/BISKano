@@ -1,0 +1,176 @@
+{
+  // ------ Back-end ------
+  "Create API": {
+    "scope": "go",
+    "prefix": ["api"],
+    "body": [
+      "${0}",
+      "func (o *${1:engine}) ${2:name}(ctx *kaos.Context, ${3:req} *${4:req_type}) (${5:res_type}, error) {",
+      "\t// var res ${5:res_type}",
+      "\tpanic(\"not implemented yet\")",
+      "}"
+    ],
+    "description": "Create swagger API documentation based on github.com/swaggo/swag"
+  },
+  "Create struct": {
+    "scope": "go",
+    "prefix": ["stru", "stu", "nstru", "nstu"],
+    "body": [
+      "// ${1:name} ${2:description}",
+      "type ${1:name} struct {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Create struct"
+  },
+  "In Query Payload struct": {
+    "scope": "go",
+    "prefix": ["payload", "structpayload", "reqinquery"],
+    "body": [
+      "req := struct {",
+      "\t${1:Field} ${2:string} `json:\"${3:field}\" form:\"${3:field}\"`${0}",
+      "}{}"
+    ],
+    "description": "Create struct"
+  },
+  "Create model": {
+    "scope": "go",
+    "prefix": ["nmod", "mod", "model"],
+    "body": [
+      "package model",
+      "",
+      "// ${1:name} model",
+      "type ${1:name} struct {",
+      "\tBaseModel `json:\"-\"`",
+      "\tID                string `json:\"_id\"`",
+      "\t${0}",
+      "\tSchema            int    `json:\"schema\"`",
+      "\tCreatedBy string    `json:\"created_by\"`",
+      "\tCreatedAt time.Time `json:\"created_at\"`",
+      "\tUpdatedBy string    `json:\"updated_by\"`",
+      "\tUpdatedAt time.Time `json:\"updated_at\"`",
+      "}",
+      "",
+      "// TableName get model table name",
+      "func (o *${1:name}) TableName() string {",
+      "\treturn \"${2:table_name}\"",
+      "}",
+      "",
+      "// GetID get model id",
+      "func (o *${1:name}) GetID(_ dbflex.IConnection) ([]string, []interface{}) {",
+      "\treturn []string{\"_id\"}, []interface{}{o.ID}",
+      "}",
+      "",
+      "// SetID set model  id",
+      "func (o *${1:name}) SetID(keys ...interface{}) {",
+      "\tif len(keys) > 0 {",
+      "\t\to.ID = keys[0].(string)",
+      "\t}",
+      "}",
+      "",
+      "// Index create model index or compound index",
+      "func (o *${1:name}) Index() [][]Index {",
+      "\treturn [][]Index{}",
+      "}",
+      "",
+      "// SchemaVersion version of schema",
+      "func (o *${1:name}) SchemaVersion() int {",
+      "\treturn 1",
+      "}",
+      "",
+      "// PreSave orm model action pre save",
+      "func (o *${1:name}) PreSave(c dbflex.IConnection) error {",
+      "\tnow := time.Now()",
+      "",
+      "\tif e := o.Recent(c); e != nil {",
+      "\t\treturn e",
+      "\t}",
+      "",
+      "\tif o.Schema == 0 {",
+      "\t\to.Schema = o.SchemaVersion()",
+      "\t}",
+      "",
+      "\tif o.ID == \"\" {",
+      "\t\to.ID = helper.GenerateID()",
+      "\t}",
+      "",
+      "\tif o.CreatedAt.IsZero() {",
+      "\t\to.CreatedAt = now",
+      "\t\to.UpdatedAt = now",
+      "\t}",
+      "\to.UpdatedAt = now",
+      "",
+      "\treturn nil",
+      "}",
+      "",
+      "// PostSave orm model action post save",
+      "func (o *${1:name}) PostSave(c dbflex.IConnection) error {",
+      "\to.CleanAsset(c)",
+      "\treturn nil",
+      "}",
+      ""
+    ],
+    "description": "Create model"
+  },
+  "Toolkit JSON String Indent": {
+    "scope": "go",
+    "prefix": ["json", "jsonstring"],
+    "body": ["toolkit.JsonStringIndent(${1:object}, \"\\t\")${0}"],
+    "description": "Toolkit JSON String Indent"
+  },
+  "Print JSON": {
+    "scope": "go",
+    "prefix": ["printjson"],
+    "body": [
+      "fmt.Printf(\"${1:object}: %v\\n\", toolkit.JsonStringIndent(${1:object}, \"\\t\"))${0}"
+    ],
+    "description": "Print JSON"
+  },
+  "Lodash Associate": {
+    "scope": "go",
+    "prefix": ["loassociate"],
+    "body": [
+      "${0:elemM} := lo.Associate(${1:array}, func(elem ${2:type}) (string, ${2:type}) {",
+      "  return elem.ID, elem",
+      "})",
+    ],
+    "description": "Lodash Associate"
+  },
+  "Lodash Map": {
+    "scope": "go",
+    "prefix": ["lomap"],
+    "body": [
+      "itemIDs := lo.Map(ms, func(m codekit.M, index int) interface{} {",
+      "  return m.GetString(\"ItemID\")",
+      "})",
+    ],
+    "description": "Lodash Map"
+  },
+  "MW Middleware Func": {
+    "scope": "go",
+    "prefix": ["mwfunc"],
+    "body": [
+      "func MWPost${1:FuncName}() kaos.MWFunc {",
+      "\treturn func(ctx *kaos.Context, payload interface{}) (bool, error) {",
+      "\t\tres, ok := ctx.Data().Data()[\"FnResult\"].(codekit.M)",
+      "\t\tif !ok {",
+      "\t\t\treturn true, nil",
+      "\t\t}",
+      "",
+      "\t\th := sebar.GetTenantDBFromContext(ctx)",
+      "\t\tms := []codekit.M{}",
+      "\t\tserde.Serde(res[\"data\"], &ms)",
+      "",
+      "\t\tfor _, m := range ms {",
+      "\t\t\t${0:// modify result in here}",
+      "\t\t}",
+      "",
+      "\t\tres.Set(\"data\", ms)",
+      "\t\tctx.Data().Set(\"FnResult\", res)",
+      "\t\treturn true, nil",
+      "\t}",
+      "}",
+    ],
+    "description": "MW Middleware Func"
+  },
+}
