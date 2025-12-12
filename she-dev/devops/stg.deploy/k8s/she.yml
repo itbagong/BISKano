@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  she
+  namespace: stg-bagong
+spec:
+  selector:
+    app: she
+  ports:
+  - protocol: TCP
+    port: 37930
+    targetPort: 37930
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: she
+  namespace: stg-bagong
+  labels:
+    app: she
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: she
+  template:
+    metadata:
+      labels:
+        app: she
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: she-config-volume
+        secret:
+          secretName: xibar-module-config  
+      containers:
+      - name: she
+        image: registry.kanosolution.net/sebar/she/she:stg.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37930
+        volumeMounts:
+        - name: she-config-volume
+          mountPath: /app/config
+          readOnly: true
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.25"
