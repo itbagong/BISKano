@@ -1,0 +1,19 @@
+stages:
+- prep
+- build
+- deploy
+
+variables:
+  V_BUILD_MODE: $CI_COMMIT_BRANCH
+  V_DEVOPS_DOCKER: devops/$V_BUILD_MODE/docker
+  V_DEVOPS_K8S: devops/$V_BUILD_MODE/k8s
+
+include:
+  - '/ci/1_compiler.yml'
+  - '/ci/2_build.yml'
+  - local: /devops/dev.deploy/3_deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="dev.deploy"
+  - local: /devops/stg.deploy/3_deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH=="stg.deploy"

@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  kara
+  namespace: stg-bagong
+spec:
+  selector:
+    app: kara
+  ports:
+  - protocol: TCP
+    port: 37870
+    targetPort: 37870
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kara
+  namespace: stg-bagong
+  labels:
+    app: kara
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kara
+  template:
+    metadata:
+      labels:
+        app: kara
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: kara-config-volume
+        secret:
+          secretName: xibar-module-config  
+      containers:
+      - name: kara
+        image: registry.kanosolution.net/sebar/kara/kara:stg.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37870
+        volumeMounts:
+        - name: kara-config-volume
+          mountPath: /app/config
+          readOnly: true
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.25"

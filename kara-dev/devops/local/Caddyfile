@@ -1,0 +1,29 @@
+http://localhost:30900 {
+	#tls internal
+
+	header -server
+	header /v1/* {
+		cache-control "no-cache, no-store, no-transform, must-revalidate, private, max-age=0"
+	}
+
+	# Proxy for SERVICES
+	reverse_proxy /v1/admin/* localhost:30901
+	reverse_proxy /v1/iam/* localhost:30902
+	reverse_proxy /v1/msg/* localhost:30903	
+	reverse_proxy /v1/asset/* localhost:30904
+	reverse_proxy /v1/ws/* localhost:30909
+
+	reverse_proxy /v1/setup/* 		localhost:30920
+	reverse_proxy /v1/finance/* 	localhost:30921
+	reverse_proxy /v1/inventory/* 	localhost:30922
+	reverse_proxy /v1/sales/* 		localhost:30923
+	reverse_proxy /v1/purchase/* 	localhost:30924
+	reverse_proxy /v1/scm/*		 	localhost:30925
+	reverse_proxy /v1/fa/*			localhost:30926
+	reverse_proxy /v1/wms/*			localhost:30927
+
+	# Proxy for FRONTEND
+	redir / /app/
+	redir /app /app/
+	reverse_proxy /app/* localhost:30980
+}

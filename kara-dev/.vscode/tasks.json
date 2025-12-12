@@ -1,0 +1,51 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run NATS",
+			"type": "shell",
+			"command": "nats-streaming-server",
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Caddy",
+			"type": "shell",
+			"command": "caddy",
+			"args": [
+				"run",
+				"--config=devops/local/Caddyfile"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Microservices Depedencies",
+			"dependsOn": [
+				"Run NATS",
+				"Run Caddy"
+			],
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"focus": false,
+				"group": "Microservices Dependencies",
+				"showReuseMessage": false
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Delay",
+			"type": "shell",
+			"command": "sleep 5",
+			"group": "none",
+			"presentation": {
+				"reveal": "never",
+				"panel": "shared",
+				"echo": false,
+				"showReuseMessage": false
+			},
+			"problemMatcher": []
+		},
+	]
+}

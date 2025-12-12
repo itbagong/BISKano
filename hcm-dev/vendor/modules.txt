@@ -1,0 +1,443 @@
+# git.kanosolution.net/kano/appkit v0.0.4
+## explicit; go 1.16
+git.kanosolution.net/kano/appkit
+# git.kanosolution.net/kano/dbflex v1.3.6-0.20231204014032-387bec6dc84b
+## explicit; go 1.19
+git.kanosolution.net/kano/dbflex
+git.kanosolution.net/kano/dbflex/orm
+# git.kanosolution.net/kano/kaos v0.3.8-0.20240203081508-9d52b88edf36
+## explicit; go 1.19
+git.kanosolution.net/kano/kaos
+git.kanosolution.net/kano/kaos/deployer
+# git.kanosolution.net/koloni/crowd v0.1.1 => git.kanosolution.net/koloni/crowd v0.1.1
+## explicit; go 1.16
+git.kanosolution.net/koloni/crowd
+# git.kanosolution.net/sebar/bagong v0.0.0-20250108103513-3265f32249bf
+## explicit; go 1.20
+git.kanosolution.net/sebar/bagong/bagongmodel
+# git.kanosolution.net/sebar/fico v0.0.0-20241128025814-cd1718e5ff43
+## explicit; go 1.20
+git.kanosolution.net/sebar/fico/ficoconfig
+git.kanosolution.net/sebar/fico/ficologic
+git.kanosolution.net/sebar/fico/ficomodel
+# git.kanosolution.net/sebar/mfg v0.0.0-20240502032635-2c6074888633
+## explicit; go 1.20
+git.kanosolution.net/sebar/mfg/mfgmodel
+# git.kanosolution.net/sebar/scm v0.0.0-20250109045244-3bc3246aa6b8
+## explicit; go 1.20
+git.kanosolution.net/sebar/scm/scmmodel
+# git.kanosolution.net/sebar/sebar v0.1.2
+## explicit; go 1.20
+git.kanosolution.net/sebar/sebar
+# git.kanosolution.net/sebar/sebarcore v0.1.9
+## explicit; go 1.20
+git.kanosolution.net/sebar/sebarcore
+git.kanosolution.net/sebar/sebarcore/rbaclogic
+git.kanosolution.net/sebar/sebarcore/rbacmodel
+# git.kanosolution.net/sebar/she v0.0.0-20250109052925-8283d208f1fd
+## explicit; go 1.20
+git.kanosolution.net/sebar/she/shemodel
+# git.kanosolution.net/sebar/tenantcore v0.0.0-20250409183300-d1304a6d191b
+## explicit; go 1.20
+git.kanosolution.net/sebar/tenantcore/tenantcoreconfig
+git.kanosolution.net/sebar/tenantcore/tenantcorelogic
+git.kanosolution.net/sebar/tenantcore/tenantcoremodel
+# github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.2
+## explicit; go 1.19
+github.com/SebastiaanKlippert/go-wkhtmltopdf
+# github.com/ariefdarmawan/byter v0.0.3-0.20231129064725-2655f8197885
+## explicit; go 1.18
+github.com/ariefdarmawan/byter
+# github.com/ariefdarmawan/datahub v0.3.2-0.20240125023907-458b82022698
+## explicit; go 1.19
+github.com/ariefdarmawan/datahub
+# github.com/ariefdarmawan/flexmgo v0.4.4-0.20231204014620-af4b276137d1
+## explicit; go 1.19
+github.com/ariefdarmawan/flexmgo
+# github.com/ariefdarmawan/kasset v0.0.7
+## explicit; go 1.19
+github.com/ariefdarmawan/kasset
+# github.com/ariefdarmawan/kmsg v0.0.8
+## explicit; go 1.19
+github.com/ariefdarmawan/kmsg
+github.com/ariefdarmawan/kmsg/ksmsg
+# github.com/ariefdarmawan/reflector v0.0.6-0.20231226205152-bccdfe865d8d
+## explicit; go 1.19
+github.com/ariefdarmawan/reflector
+# github.com/ariefdarmawan/serde v0.1.1
+## explicit; go 1.16
+github.com/ariefdarmawan/serde
+# github.com/ariefdarmawan/suim v0.0.7-0.20231127172825-586efe2c9810
+## explicit; go 1.18
+github.com/ariefdarmawan/suim
+# github.com/aws/aws-sdk-go v1.44.36
+## explicit; go 1.11
+github.com/aws/aws-sdk-go/aws
+github.com/aws/aws-sdk-go/aws/arn
+github.com/aws/aws-sdk-go/aws/awserr
+github.com/aws/aws-sdk-go/aws/awsutil
+github.com/aws/aws-sdk-go/aws/client
+github.com/aws/aws-sdk-go/aws/client/metadata
+github.com/aws/aws-sdk-go/aws/corehandlers
+github.com/aws/aws-sdk-go/aws/credentials
+github.com/aws/aws-sdk-go/aws/credentials/ec2rolecreds
+github.com/aws/aws-sdk-go/aws/credentials/endpointcreds
+github.com/aws/aws-sdk-go/aws/credentials/processcreds
+github.com/aws/aws-sdk-go/aws/credentials/ssocreds
+github.com/aws/aws-sdk-go/aws/credentials/stscreds
+github.com/aws/aws-sdk-go/aws/csm
+github.com/aws/aws-sdk-go/aws/defaults
+github.com/aws/aws-sdk-go/aws/ec2metadata
+github.com/aws/aws-sdk-go/aws/endpoints
+github.com/aws/aws-sdk-go/aws/request
+github.com/aws/aws-sdk-go/aws/session
+github.com/aws/aws-sdk-go/aws/signer/v4
+github.com/aws/aws-sdk-go/internal/context
+github.com/aws/aws-sdk-go/internal/ini
+github.com/aws/aws-sdk-go/internal/s3shared
+github.com/aws/aws-sdk-go/internal/s3shared/arn
+github.com/aws/aws-sdk-go/internal/s3shared/s3err
+github.com/aws/aws-sdk-go/internal/sdkio
+github.com/aws/aws-sdk-go/internal/sdkmath
+github.com/aws/aws-sdk-go/internal/sdkrand
+github.com/aws/aws-sdk-go/internal/sdkuri
+github.com/aws/aws-sdk-go/internal/shareddefaults
+github.com/aws/aws-sdk-go/internal/strings
+github.com/aws/aws-sdk-go/internal/sync/singleflight
+github.com/aws/aws-sdk-go/private/checksum
+github.com/aws/aws-sdk-go/private/protocol
+github.com/aws/aws-sdk-go/private/protocol/eventstream
+github.com/aws/aws-sdk-go/private/protocol/eventstream/eventstreamapi
+github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+github.com/aws/aws-sdk-go/private/protocol/jsonrpc
+github.com/aws/aws-sdk-go/private/protocol/query
+github.com/aws/aws-sdk-go/private/protocol/query/queryutil
+github.com/aws/aws-sdk-go/private/protocol/rest
+github.com/aws/aws-sdk-go/private/protocol/restjson
+github.com/aws/aws-sdk-go/private/protocol/restxml
+github.com/aws/aws-sdk-go/private/protocol/xml/xmlutil
+github.com/aws/aws-sdk-go/service/s3
+github.com/aws/aws-sdk-go/service/sso
+github.com/aws/aws-sdk-go/service/sso/ssoiface
+github.com/aws/aws-sdk-go/service/sts
+github.com/aws/aws-sdk-go/service/sts/stsiface
+# github.com/cockroachdb/apd v1.1.0
+## explicit
+github.com/cockroachdb/apd
+# github.com/ekokurniadi/terbilang v1.1.7
+## explicit; go 1.13
+github.com/ekokurniadi/terbilang
+# github.com/fsnotify/fsnotify v1.7.0
+## explicit; go 1.17
+github.com/fsnotify/fsnotify
+# github.com/go-playground/locales v0.14.1
+## explicit; go 1.17
+github.com/go-playground/locales
+github.com/go-playground/locales/currency
+# github.com/go-playground/universal-translator v0.18.1
+## explicit; go 1.18
+github.com/go-playground/universal-translator
+# github.com/go-playground/validator/v10 v10.13.0
+## explicit; go 1.18
+github.com/go-playground/validator/v10
+# github.com/golang-jwt/jwt v3.2.2+incompatible
+## explicit
+github.com/golang-jwt/jwt
+# github.com/golang/snappy v0.0.4
+## explicit
+github.com/golang/snappy
+# github.com/google/uuid v1.6.0
+## explicit
+github.com/google/uuid
+# github.com/h2non/filetype v1.1.3
+## explicit; go 1.13
+github.com/h2non/filetype
+github.com/h2non/filetype/matchers
+github.com/h2non/filetype/matchers/isobmff
+github.com/h2non/filetype/types
+# github.com/hashicorp/hcl v1.0.0
+## explicit
+github.com/hashicorp/hcl
+github.com/hashicorp/hcl/hcl/ast
+github.com/hashicorp/hcl/hcl/parser
+github.com/hashicorp/hcl/hcl/printer
+github.com/hashicorp/hcl/hcl/scanner
+github.com/hashicorp/hcl/hcl/strconv
+github.com/hashicorp/hcl/hcl/token
+github.com/hashicorp/hcl/json/parser
+github.com/hashicorp/hcl/json/scanner
+github.com/hashicorp/hcl/json/token
+# github.com/jmespath/go-jmespath v0.4.0
+## explicit; go 1.14
+github.com/jmespath/go-jmespath
+# github.com/kanoteknologi/hd v0.1.5-0.20230410000441-93e3b1dbffbc
+## explicit; go 1.16
+github.com/kanoteknologi/hd
+# github.com/kanoteknologi/knats v0.1.6-0.20230607082547-a6e628332eb7
+## explicit; go 1.19
+github.com/kanoteknologi/knats
+# github.com/kanoteknologi/kns v0.1.1-0.20230520175234-5c6df4a2800f
+## explicit; go 1.20
+github.com/kanoteknologi/kns
+# github.com/klauspost/compress v1.17.0
+## explicit; go 1.18
+github.com/klauspost/compress
+github.com/klauspost/compress/flate
+github.com/klauspost/compress/fse
+github.com/klauspost/compress/huff0
+github.com/klauspost/compress/internal/cpuinfo
+github.com/klauspost/compress/internal/snapref
+github.com/klauspost/compress/zstd
+github.com/klauspost/compress/zstd/internal/xxhash
+# github.com/leekchan/accounting v1.0.0
+## explicit; go 1.13
+github.com/leekchan/accounting
+# github.com/leodido/go-urn v1.2.3
+## explicit; go 1.16
+github.com/leodido/go-urn
+# github.com/logrusorgru/aurora v2.0.3+incompatible
+## explicit
+github.com/logrusorgru/aurora
+# github.com/magiconair/properties v1.8.7
+## explicit; go 1.19
+github.com/magiconair/properties
+# github.com/mitchellh/mapstructure v1.5.0
+## explicit; go 1.14
+github.com/mitchellh/mapstructure
+# github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
+## explicit
+github.com/mohae/deepcopy
+# github.com/montanaflynn/stats v0.7.0
+## explicit; go 1.13
+github.com/montanaflynn/stats
+# github.com/nats-io/nats.go v1.31.0
+## explicit; go 1.20
+github.com/nats-io/nats.go
+github.com/nats-io/nats.go/encoders/builtin
+github.com/nats-io/nats.go/internal/parser
+github.com/nats-io/nats.go/util
+# github.com/nats-io/nkeys v0.4.6
+## explicit; go 1.19
+github.com/nats-io/nkeys
+# github.com/nats-io/nuid v1.0.1
+## explicit
+github.com/nats-io/nuid
+# github.com/pelletier/go-toml/v2 v2.1.1
+## explicit; go 1.16
+github.com/pelletier/go-toml/v2
+github.com/pelletier/go-toml/v2/internal/characters
+github.com/pelletier/go-toml/v2/internal/danger
+github.com/pelletier/go-toml/v2/internal/tracker
+github.com/pelletier/go-toml/v2/unstable
+# github.com/pkg/errors v0.9.1
+## explicit
+github.com/pkg/errors
+# github.com/richardlehane/mscfb v1.0.4
+## explicit
+github.com/richardlehane/mscfb
+# github.com/richardlehane/msoleps v1.0.4
+## explicit
+github.com/richardlehane/msoleps/types
+# github.com/sagikazarmark/locafero v0.4.0
+## explicit; go 1.20
+github.com/sagikazarmark/locafero
+# github.com/sagikazarmark/slog-shim v0.1.0
+## explicit; go 1.20
+github.com/sagikazarmark/slog-shim
+# github.com/samber/lo v1.39.0
+## explicit; go 1.18
+github.com/samber/lo
+# github.com/sebarcode/codekit v0.1.6
+## explicit; go 1.18
+github.com/sebarcode/codekit
+# github.com/sebarcode/dbmod v0.1.1-0.20230912211442-9ef219a88ffd
+## explicit; go 1.16
+github.com/sebarcode/dbmod
+# github.com/sebarcode/kamis v0.0.6
+## explicit; go 1.18
+github.com/sebarcode/kamis
+# github.com/sebarcode/kiva v0.1.1-0.20231125164402-56638605c1f8
+## explicit; go 1.20
+github.com/sebarcode/kiva
+# github.com/sebarcode/logger v0.1.1
+## explicit; go 1.16
+github.com/sebarcode/logger
+# github.com/sebarcode/siam v0.0.4-0.20240206142608-36603e9dde3f
+## explicit; go 1.19
+github.com/sebarcode/siam
+# github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24
+## explicit
+github.com/shopspring/decimal
+# github.com/sourcegraph/conc v0.3.0
+## explicit; go 1.19
+github.com/sourcegraph/conc
+github.com/sourcegraph/conc/internal/multierror
+github.com/sourcegraph/conc/iter
+github.com/sourcegraph/conc/panics
+# github.com/spf13/afero v1.11.0
+## explicit; go 1.19
+github.com/spf13/afero
+github.com/spf13/afero/internal/common
+github.com/spf13/afero/mem
+# github.com/spf13/cast v1.6.0
+## explicit; go 1.19
+github.com/spf13/cast
+# github.com/spf13/pflag v1.0.5
+## explicit; go 1.12
+github.com/spf13/pflag
+# github.com/spf13/viper v1.18.2
+## explicit; go 1.18
+github.com/spf13/viper
+github.com/spf13/viper/internal/encoding
+github.com/spf13/viper/internal/encoding/dotenv
+github.com/spf13/viper/internal/encoding/hcl
+github.com/spf13/viper/internal/encoding/ini
+github.com/spf13/viper/internal/encoding/javaproperties
+github.com/spf13/viper/internal/encoding/json
+github.com/spf13/viper/internal/encoding/toml
+github.com/spf13/viper/internal/encoding/yaml
+github.com/spf13/viper/internal/features
+# github.com/subosito/gotenv v1.6.0
+## explicit; go 1.18
+github.com/subosito/gotenv
+# github.com/xdg-go/pbkdf2 v1.0.0
+## explicit; go 1.9
+github.com/xdg-go/pbkdf2
+# github.com/xdg-go/scram v1.1.2
+## explicit; go 1.11
+github.com/xdg-go/scram
+# github.com/xdg-go/stringprep v1.0.4
+## explicit; go 1.11
+github.com/xdg-go/stringprep
+# github.com/xuri/efp v0.0.0-20240408161823-9ad904a10d6d
+## explicit; go 1.11
+github.com/xuri/efp
+# github.com/xuri/excelize/v2 v2.9.0
+## explicit; go 1.18
+github.com/xuri/excelize/v2
+# github.com/xuri/nfp v0.0.0-20240318013403-ab9948c2c4a7
+## explicit; go 1.15
+github.com/xuri/nfp
+# github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a
+## explicit; go 1.12
+github.com/youmark/pkcs8
+# go.mongodb.org/mongo-driver v1.12.1
+## explicit; go 1.13
+go.mongodb.org/mongo-driver/bson
+go.mongodb.org/mongo-driver/bson/bsoncodec
+go.mongodb.org/mongo-driver/bson/bsonoptions
+go.mongodb.org/mongo-driver/bson/bsonrw
+go.mongodb.org/mongo-driver/bson/bsontype
+go.mongodb.org/mongo-driver/bson/primitive
+go.mongodb.org/mongo-driver/event
+go.mongodb.org/mongo-driver/internal
+go.mongodb.org/mongo-driver/internal/aws
+go.mongodb.org/mongo-driver/internal/aws/awserr
+go.mongodb.org/mongo-driver/internal/aws/credentials
+go.mongodb.org/mongo-driver/internal/aws/signer/v4
+go.mongodb.org/mongo-driver/internal/credproviders
+go.mongodb.org/mongo-driver/internal/logger
+go.mongodb.org/mongo-driver/internal/randutil
+go.mongodb.org/mongo-driver/internal/randutil/rand
+go.mongodb.org/mongo-driver/internal/uuid
+go.mongodb.org/mongo-driver/mongo
+go.mongodb.org/mongo-driver/mongo/address
+go.mongodb.org/mongo-driver/mongo/description
+go.mongodb.org/mongo-driver/mongo/gridfs
+go.mongodb.org/mongo-driver/mongo/options
+go.mongodb.org/mongo-driver/mongo/readconcern
+go.mongodb.org/mongo-driver/mongo/readpref
+go.mongodb.org/mongo-driver/mongo/writeconcern
+go.mongodb.org/mongo-driver/tag
+go.mongodb.org/mongo-driver/version
+go.mongodb.org/mongo-driver/x/bsonx/bsoncore
+go.mongodb.org/mongo-driver/x/mongo/driver
+go.mongodb.org/mongo-driver/x/mongo/driver/auth
+go.mongodb.org/mongo-driver/x/mongo/driver/auth/creds
+go.mongodb.org/mongo-driver/x/mongo/driver/auth/internal/gssapi
+go.mongodb.org/mongo-driver/x/mongo/driver/connstring
+go.mongodb.org/mongo-driver/x/mongo/driver/dns
+go.mongodb.org/mongo-driver/x/mongo/driver/mongocrypt
+go.mongodb.org/mongo-driver/x/mongo/driver/mongocrypt/options
+go.mongodb.org/mongo-driver/x/mongo/driver/ocsp
+go.mongodb.org/mongo-driver/x/mongo/driver/operation
+go.mongodb.org/mongo-driver/x/mongo/driver/session
+go.mongodb.org/mongo-driver/x/mongo/driver/topology
+go.mongodb.org/mongo-driver/x/mongo/driver/wiremessage
+# go.uber.org/multierr v1.11.0
+## explicit; go 1.19
+go.uber.org/multierr
+# golang.org/x/crypto v0.28.0
+## explicit; go 1.20
+golang.org/x/crypto/blake2b
+golang.org/x/crypto/curve25519
+golang.org/x/crypto/ed25519
+golang.org/x/crypto/internal/alias
+golang.org/x/crypto/internal/poly1305
+golang.org/x/crypto/md4
+golang.org/x/crypto/nacl/box
+golang.org/x/crypto/nacl/secretbox
+golang.org/x/crypto/ocsp
+golang.org/x/crypto/pbkdf2
+golang.org/x/crypto/ripemd160
+golang.org/x/crypto/salsa20/salsa
+golang.org/x/crypto/scrypt
+golang.org/x/crypto/sha3
+# golang.org/x/exp v0.0.0-20240119083558-1b970713d09a
+## explicit; go 1.20
+golang.org/x/exp/constraints
+golang.org/x/exp/slices
+golang.org/x/exp/slog
+golang.org/x/exp/slog/internal
+golang.org/x/exp/slog/internal/buffer
+# golang.org/x/net v0.30.0
+## explicit; go 1.18
+golang.org/x/net/html
+golang.org/x/net/html/atom
+golang.org/x/net/html/charset
+# golang.org/x/sync v0.8.0
+## explicit; go 1.18
+golang.org/x/sync/errgroup
+golang.org/x/sync/singleflight
+# golang.org/x/sys v0.26.0
+## explicit; go 1.18
+golang.org/x/sys/cpu
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+# golang.org/x/text v0.19.0
+## explicit; go 1.18
+golang.org/x/text/cases
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/htmlindex
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/feature/plural
+golang.org/x/text/internal
+golang.org/x/text/internal/catmsg
+golang.org/x/text/internal/format
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/number
+golang.org/x/text/internal/stringset
+golang.org/x/text/internal/tag
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/language
+golang.org/x/text/message
+golang.org/x/text/message/catalog
+golang.org/x/text/runes
+golang.org/x/text/transform
+golang.org/x/text/unicode/norm
+# gopkg.in/ini.v1 v1.67.0
+## explicit
+gopkg.in/ini.v1
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+gopkg.in/yaml.v3
+# github.com/ariefdarmawan/flexpg v0.7.0 => github.com/ariefdarmawan/flexpg v0.7.1
+# git.kanosolution.net/koloni/crowd => git.kanosolution.net/koloni/crowd v0.1.1

@@ -1,0 +1,18 @@
+Hosts:
+  v1/kara: :${var:port_prefix}01
+Connections:
+  default:
+    Txt: "mongodb://localhost:27017/kanomed_dev?idle=10&poolsize=500"
+    PoolSize: 500
+  iam:
+    Txt: "mongodb://localhost:27017/kanomed_dev?idel=10&poolsize=50"
+    PoolSize: 50
+  tenant:
+    Txt: "mongodb://localhost:27017/kanomed_dev%s?idle=10&poolsize=500"
+    PoolSize: 500
+EventServer:
+  Server: "nats://localhost:4222"
+  Group: "some_unique_text"
+  EventChangeTopic: /config/change
+Data:
+  web_basepath: "http://localhost:${var:port_prefix}00/app"

@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  hcm
+  namespace: stg-bagong
+spec:
+  selector:
+    app: hcm
+  ports:
+  - protocol: TCP
+    port: 37920
+    targetPort: 37920
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hcm
+  namespace: stg-bagong
+  labels:
+    app: hcm
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hcm
+  template:
+    metadata:
+      labels:
+        app: hcm
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: hcm-config-volume
+        secret:
+          secretName: xibar-module-config  
+      containers:
+      - name: hcm
+        image: registry.kanosolution.net/sebar/hcm/hcm:stg
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37920
+        volumeMounts:
+        - name: hcm-config-volume
+          mountPath: /app/config
+          readOnly: true
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.25"
