@@ -1,0 +1,8 @@
+deploy:k8s:
+  stage: deploy
+  only:
+  - /\.deploy$/
+  image: registry.kanosolution.net/kano/devops/kubectl/kubeaws:latest
+  script:
+    - aws eks --region ap-southeast-1 update-kubeconfig --name eks-dev
+    - kubectl rollout restart deployment xibar-app -n dev-xibar

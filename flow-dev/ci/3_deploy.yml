@@ -1,0 +1,9 @@
+deploy:k8s:
+  stage: deploy
+  only:
+  - /\.deploy$/
+  image: registry.kanosolution.net/kano/devops/kubectl/kubeaws:latest
+  script:
+    - aws eks --region ap-southeast-1 update-kubeconfig --name eks-dev
+    - kubectl apply -n dev-xibar -f $V_DEVOPS_K8S/flow.yml
+    - kubectl rollout restart deployment flow -n dev-xibar

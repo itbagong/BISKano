@@ -1,0 +1,14 @@
+stages:
+- prep
+- build
+- deploy
+
+variables:
+  V_BUILD_MODE: dev
+  V_DEVOPS_DOCKER: devops/$V_BUILD_MODE/docker
+  V_DEVOPS_K8S: devops/$V_BUILD_MODE/k8s
+
+include:
+  - '/ci/1_compiler.yml'
+  - '/ci/2_build.yml'
+  - '/ci/3_deploy.yml'

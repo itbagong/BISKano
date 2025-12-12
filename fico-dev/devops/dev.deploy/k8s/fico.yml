@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  fico
+  namespace: dev-xibar
+spec:
+  selector:
+    app: fico
+  ports:
+  - protocol: TCP
+    port: 37801
+    targetPort: 37801
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fico
+  namespace: dev-xibar
+  labels:
+    app: fico
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fico
+  template:
+    metadata:
+      labels:
+        app: fico
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: fico-config-volume
+        secret:
+          secretName: xibar-module-config  
+      containers:
+      - name: fico
+        image: registry.kanosolution.net/sebar/fico/fico:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37800
+        volumeMounts:
+        - name: fico-config-volume
+          mountPath: /app/config
+          readOnly: true
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.25"

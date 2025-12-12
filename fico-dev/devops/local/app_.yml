@@ -1,0 +1,35 @@
+Hosts:
+  v1/tenant: :37800
+  v1/fico: :37801
+  v1/kara: :37820
+  v1/bagong: :37890
+  v1/scm: :37802
+  v1/mfg: :37803
+Connections:
+  tenant:
+    Txt: mongodb://localhost:27017/xibar-dev-%s?replicaSet=res01
+    PoolSize: 500
+    UseTx: true
+EventServer:
+  Server: nats://localhost:4222
+  Group: "X1b4rGroup"
+  EventChangeTopic: /config/change
+  Timeout: 60
+Data:
+  posting_topic: /v1/fico/%s/%s
+  topic_asset_write: /v1/asset/write
+  addr_asset_view: http://localhost:37000/v1/asset/view
+  topic_send_message_template: /v1/msg/send-template
+  topic_change_session_data: /v1/iam/auth/change-data
+  addr_web_user: http://localhost:37000/app
+  addr_web_tenant: http://localhost:37000/app
+  addr_web_admin: http://localhost:37000/app
+  addr_web_user_activation: /activate-user
+  addr_auth_validation: /v1/iam/auth/validate
+  addr_access_validation: /v1/iam/validate-access
+  jwt_method: HS256
+  jwt_secret: Am4z1n9Solution
+  jwt_validate_topic: /v1/iam/auth/validate
+  get_user_topic: /v1/iam/user/get-by
+  seqnum_topic: /v1/tenant/numseq/claim-by-setup
+  session_lifetime: 200000
