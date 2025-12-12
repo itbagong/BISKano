@@ -1,0 +1,1 @@
+This folder should be for any require template

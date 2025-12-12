@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  scm
+  namespace: dev-xibar
+spec:
+  selector:
+    app: scm
+  ports:
+  - protocol: TCP
+    port: 37802
+    targetPort: 37802
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scm
+  namespace: dev-xibar
+  labels:
+    app: scm
+spec:
+  strategy:
+      type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scm
+  template:
+    metadata:
+      labels:
+        app: scm
+    spec:
+      imagePullSecrets:
+      - name: regkano
+      volumes:
+      - name: scm-config-volume
+        secret:
+          secretName: xibar-module-config  
+      containers:
+      - name: scm
+        image: registry.kanosolution.net/sebar/scm/scm:dev.deploy
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 37800
+        volumeMounts:
+        - name: scm-config-volume
+          mountPath: /app/config
+          readOnly: true
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "0.25"
