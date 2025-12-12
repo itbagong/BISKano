@@ -1,0 +1,20 @@
+ build:web:
+  stage: build
+  dependencies: []
+  only:
+    - /\.deploy$/
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor --context $CI_PROJECT_DIR \
+        --dockerfile $CI_PROJECT_DIR/$V_DEVOPS_DOCKER \
+        --build-arg BuildMode=$V_BUILD_MODE \
+        --build-arg GitUser=gitlab-ci-token \
+        --build-arg GitSecret=${CI_JOB_TOKEN} \
+        --build-arg AppName=$APP_NAME \
+        --build-arg GitSecret=${CI_JOB_TOKEN} \
+        --destination $CI_REGISTRY_IMAGE/web-xiuser:$CI_COMMIT_SHORT_SHA \
+        --destination $CI_REGISTRY_IMAGE/web-xiuser:latest

@@ -1,0 +1,32 @@
+[
+  {
+    "busId": 1,
+    "busName": "Bus A",
+    "seatingCapacity": 30,
+    "driver": "John Smith"
+  },
+  {
+    "busId": 2,
+    "busName": "Bus B",
+    "seatingCapacity": 25,
+    "driver": "Jane Doe"
+  },
+  {
+    "busId": 3,
+    "busName": "Bus C",
+    "seatingCapacity": 35,
+    "driver": "Robert Johnson"
+  },
+  {
+    "busId": 4,
+    "busName": "Bus D",
+    "seatingCapacity": 28,
+    "driver": "Emily White"
+  },
+  {
+    "busId": 5,
+    "busName": "Bus E",
+    "seatingCapacity": 32,
+    "driver": "Michael Brown"
+  }
+]

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-[1.6em] font-normal;
+    }
+
+    h2 {
+        @apply text-[1.3em];
+    }
+
+    h3 {
+        @apply font-bold
+    }
+}

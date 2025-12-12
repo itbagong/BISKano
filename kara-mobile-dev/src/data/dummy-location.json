@@ -1,0 +1,38 @@
+[
+  {
+    "locationId": 1,
+    "locationName": "Conference Room 101",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "locationId": 2,
+    "locationName": "Office Lobby",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "locationId": 3,
+    "locationName": "Cafeteria",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "locationId": 4,
+    "locationName": "Conference Room 203",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "locationId": 5,
+    "locationName": "Office Cubicle",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  },
+  {
+    "locationId": 6,
+    "locationName": "Break Room",
+    "latitude": 37.7749,
+    "longitude": -122.4194
+  }
+]

@@ -1,0 +1,23 @@
+// prettier-ignore
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",     /* Recommended React Native TSConfig base */
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "paths": {
+      "*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@navigations/*": ["src/navigations/*"],
+      "@screens/*": ["src/screens/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@data/*": ["src/data/*"],
+      "@overmind/*": ["src/overmind/*"],
+      "overmind": ["overmind"]
+    },
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}
