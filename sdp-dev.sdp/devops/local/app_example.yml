@@ -1,0 +1,22 @@
+Hosts:
+  v1/sdp: :37901
+Connections:
+  tenant:
+    Txt: "mongodb://localhost:27017/xibardb_dev_%s?idle=10&poolsize=500"
+    PoolSize: 500
+EventServer:
+  Server: "nats://localhost:4222"
+  Group: ${env:event_group}
+  EventChangeTopic: /config/change
+Data:
+  data_folder: ${ctx:wd}/data
+  topic_asset_write: /v1/asset/write
+  addr_asset_view: ${env:xibar_base_host}/v1/asset/view
+  topic_send_message_template: /v1/msg/send-template
+  topic_change_session_data: /v1/iam/auth/change-data
+  addr_web_user: ${env:xibar_base_host}/app
+  addr_web_tenant: ${env:xibar_base_host}/app
+  addr_web_admin: ${env:xibar_base_host}/app
+  addr_web_user_activation: /activate-user
+  addr_auth_validation: /activate-user
+  addr_access_validation: /activate-user

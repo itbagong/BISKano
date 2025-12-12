@@ -1,0 +1,6 @@
+app/sdp/__debug_*.exe
+*/*/app.yml
+*/*/__debug_bin
+*/*/*.exe
+app.yml
+devops/local/app.yml

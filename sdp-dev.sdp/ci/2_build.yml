@@ -1,0 +1,29 @@
+.build:svc: &build-svc
+  stage: build
+  dependencies: []
+  only:
+   - /\.deploy$/
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - export APP_NAME=$(echo "$CI_JOB_NAME" | cut -d ':' -f 2-)
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - |
+      if [[ -f $CI_PROJECT_DIR/$V_DEVOPS_DOCKER/$APP_NAME.dockerfile ]]; then
+        echo "found $APP_NAME.dockerfile, will using it to build docker image"
+        export D_APP_NAME=$APP_NAME
+      else
+        echo "could not find $APP_NAME.dockerfile, will use service-builder.dockerfile to build docker image"
+        export D_APP_NAME="service-builder"
+      fi
+    - |
+      /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/$V_DEVOPS_DOCKER/$D_APP_NAME.dockerfile --build-arg BuildMode=$V_BUILD_MODE \
+        --build-arg GitUser=gitlab-ci-token \
+        --build-arg GitSecret=${CI_JOB_TOKEN} \
+        --build-arg AppName=$APP_NAME \
+        --build-arg GitSecret=${CI_JOB_TOKEN} \
+        --destination $CI_REGISTRY_IMAGE/$APP_NAME:$V_BUILD_MODE
+
+build:sdp:
+  <<: *build-svc
